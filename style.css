@@ -1,0 +1,241 @@
+/* --- การตั้งค่าพื้นฐานและตัวแปร (Variables) --- */
+:root {
+    --primary-color: #BF4923;
+    --secondary-color: #D9A05B;
+    --background-color: #F2F2F2;
+    --text-color: #333333;
+    --white-color: #FFFFFF;
+    
+    --border-radius: 8px;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+body.body-no-scroll {
+    overflow: hidden; /* ป้องกันการ scroll พื้นหลังตอนการ์ดขยาย */
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    background-color: var(--white-color);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Hero Section (ส่วนหัว) --- */
+.hero {
+    background-color: var(--white-color);
+    padding: 4rem 0;
+}
+
+.hero-con {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero-info { flex: 1; }
+.hero-info h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 1rem; }
+.hero-info p { font-size: 1.1rem; margin-bottom: 2rem; color: #555; }
+.hero-img { flex: 1; text-align: center; }
+.hero-img img { max-width: 100%; height: auto; border-radius: var(--border-radius); box-shadow: var(--box-shadow); }
+
+/* --- Buttons (ปุ่ม) --- */
+.btn, .btn-secondary {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-family: 'Kanit', sans-serif;
+}
+.btn { background-color: var(--primary-color); color: var(--white-color); }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); }
+
+.btn-secondary {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+}
+.btn-secondary:hover { background-color: var(--primary-color); color: var(--white-color); }
+
+/* --- Menu Section (ส่วนแสดงรายการอาหาร) --- */
+.menu-section { padding: 4rem 0; }
+.section-title { text-align: center; margin-bottom: 3rem; }
+.section-title h2 { font-size: 2.5rem; }
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.load-more-container { text-align: center; margin-top: 2.5rem; }
+
+.menu-card {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+}
+.menu-card:hover { transform: translateY(-10px); }
+.menu-card img { width: 100%; height: 200px; object-fit: cover; }
+.card-content { padding: 1.5rem; }
+.card-content h4 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.card-content p { margin-bottom: 1.5rem; color: #666; }
+
+/* --- Expanded Card & Overlay Styles --- */
+#overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000; opacity: 0; pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+#overlay.visible { opacity: 1; pointer-events: all; }
+
+.menu-card.card-expanded {
+    position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; max-width: 600px;
+    height: 80vh; max-height: 700px;
+    z-index: 1001; overflow-y: auto;
+}
+.menu-card.card-expanded:hover { transform: translate(-50%, -50%); }
+
+.card-detail-content { display: none; padding: 2rem; padding-top: 4rem; }
+.menu-card.card-expanded .card-content,
+.menu-card.card-expanded img { display: none; }
+.menu-card.card-expanded .card-detail-content { display: block; }
+
+.card-detail-content h3 { margin-top: 1.5rem; }
+.card-detail-content ul { list-style-position: inside; padding-left: 1rem; }
+.card-detail-content ul li { margin-bottom: 0.5rem; }
+
+.close-btn {
+    position: absolute; top: 10px; right: 15px;
+    font-size: 2.5rem; font-weight: bold; color: #888;
+    background: none; border: none; cursor: pointer; line-height: 1;
+}
+.close-btn:hover { color: #333; }
+
+.hidden-card { display: none; }
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .hero-con { flex-direction: column; text-align: center; }
+    .hero-info { order: 2; }
+    .hero-img { order: 1; margin-bottom: 2rem; }
+}
+/* --- Styles for New Content Pages --- */
+.content-page {
+    background-color: var(--white-color);
+    padding: 2rem 3rem;
+    margin: 3rem 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+.content-page h1 { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--primary-color); }
+.content-page h2 { font-size: 1.8rem; margin-top: 2rem; margin-bottom: 1rem; }
+.content-page p { margin-bottom: 1rem; line-height: 1.8; }
+.content-page ul { margin-left: 20px; margin-bottom: 1rem; }
+.content-img { width: 100%; max-width: 500px; display: block; margin: 1.5rem auto; border-radius: var(--border-radius); }
+
+/* --- Footer Styles --- */
+.site-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+}
+
+/* --- Suggestions Modal Styles --- */
+.modal {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    display: flex; /* ใช้ flex เพื่อจัดให้อยู่กลางจอ */
+    align-items: center;
+    justify-content: center;
+}
+.modal.visible { opacity: 1; pointer-events: auto; }
+.modal-content {
+    background-color: var(--white-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+.close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    color: #aaa;
+    cursor: pointer;
+    line-height: 1;
+}
+.close-modal-btn:hover { color: #333; }
+.qr-code-img { max-width: 200px; margin-top: 1rem; }
+

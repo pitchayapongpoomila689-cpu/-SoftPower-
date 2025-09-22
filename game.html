@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatable" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soft power quiz game</title>
+    <link rel="stylesheet" href="stylegame.css">
+</head>
+
+<body>
+
+    <main class="main">
+        <header class="header">
+            <a href="#" class="logo">เกมวัดความรู้</a>
+        </header>
+
+        <div class="container">
+            <section class="quiz-section">
+                <div class="quiz-box">
+                    <h1>แบบทดสอบวัดความรู้</h1>
+                    <div class="quiz-header">
+                        <span>Soft Power Food</span>
+                        <span class="header-score">คะแนน: 0 / 15</span>
+                    </div>
+
+                    <h2 class="question-text">ต้มยำกุ้ง มีเอกลักษณ์เด่นที่รสชาติแบบไหน?</h2>
+
+                    <div class="option-list">
+                        </div>
+
+                    <div class="quiz-footer">
+                        <span class="question-total">1 จาก 15 คำถาม</span>
+                        <button class="next-btn">ต่อไป</button>
+                    </div>
+                </div>
+
+                <div class="result-box">
+                    <h2>ผลคะแนน</h2>
+                    <div class="percentage-container">
+                        <div class="circular-progress">
+                            <span class="progress-value">0%</span>
+                        </div>
+
+                        <span class="score-text">คุณทำคะแนนได้ 0 จาก 15 คะแนน</span>
+                    </div>
+                    <div class="buttons">
+                        <button class="tryAgain-btn">ลองอีกครั้งมั้ยจั๊ฟ</button>
+                        <button class="goHome-btn">กลับหน้าหลัก</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="home">
+                <div class="home-content">
+                    <h1>Soft Power </h1>
+                    <p> อาหารไทย คือ มรดกทางวัฒนธรรม และเป็นหนึ่งใน Soft Power ที่สร้างชื่อเสียงให้แก่ประเทศไทย มาร่วมทดสอบความรู้ความเข้าใจเกี่ยวกับเอกลักษณ์และเรื่องราวเบื้องหลังเมนูอาหารไทยผ่านแบบทดสอบนี้.</p>
+                    <button class="start-btn">เริ่มเล่นเกมเลย</button>
+
+                    <a href="index.html" style="display: block; text-align: center; margin-top: 15px; color: #fff; text-decoration: none; font-size: 16px; opacity: 0.8; transition: opacity 0.3s;">กลับสู่หน้าหลัก</a>
+                    </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="popup-info">
+        <h2>Quiz Guide</h2>
+        <span class="info">1.เกมแบบทดสอบนี้ประกอบด้วยคำถามทั้งหมด 15ข้อ.</span>
+        <span class="info">2.กรุณา อ่านคำถามและเลือกคำตอบที่ท่านเห็นว่าถูกต้องที่สุดเพียง 1 ข้อ.</span>
+        <span class="info">3.เมื่อยืนยันคำตอบในแต่ละข้อ แล้วจะไม่สามารถย้อนกลับเพื่อแก้ไขได้.</span>
+        <span class="info">4.ตอบถูกจะได้รับ 1 คะแนน ไม่มีการหักคะแนนเมื่อตอบผิด.</span>
+        <span class="info">5.ระบบจะแสดงผลคะแนนรวมของท่าน หลังจากทำแบบทดสอบครบทุกข้อ.</span>
+
+        <div class="btn-group">
+            <button class="info-btn exit-btn">ออก</button>
+            <a href="#" class="info-btn Continue-btn">ต่อไป</a>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="gamescript.js"></script> 
+</body>
+</html>
